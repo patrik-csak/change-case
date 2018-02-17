@@ -1,0 +1,17 @@
+{
+  "name": "ptrkcsk/change-case",
+  "description": "",
+  "version": "0.0.0",
+  "type": "library",
+  "keywords": [
+    "case"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Patrik Csak",
+      "email": "patrik@csak.email"
+    }
+  ],
+  "require": {}
+}
