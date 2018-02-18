@@ -10,8 +10,8 @@ final class UpperCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
-     * @dataProvider stringProvider
-     * @dataProvider unicodeProvider
+     * @dataProvider convertStringProvider
+     * @dataProvider convertUnicodeProvider
      */
     public function testConvert(
         string $before,
@@ -20,7 +20,17 @@ final class UpperCaseTest extends TestCase
         $this->assertEquals($after, UpperCase::convert($before));
     }
 
-    public function stringProvider(): array
+    /**
+     * @param string $string
+     * @param bool $expected
+     * @dataProvider isUpperProvider
+     */
+    public function testIs(string $string, bool $expected): void
+    {
+        $this->assertEquals($expected, UpperCase::is($string));
+    }
+
+    public function convertStringProvider(): array
     {
         return [
             [(string)null, ''],
@@ -30,8 +40,17 @@ final class UpperCaseTest extends TestCase
         ];
     }
 
-    public function unicodeProvider(): array
+    public function convertUnicodeProvider(): array
     {
         return [["\u{0131}", 'I']];
+    }
+
+    public function isUpperProvider(): array
+    {
+        return [
+            ['TEST', true],
+            ['test', false],
+            ['Test', false,],
+        ];
     }
 }
