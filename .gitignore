@@ -1,2 +1,7 @@
+# Directories
+
 vendor
 tests/coverage
+
+# Files
+composer.phar
