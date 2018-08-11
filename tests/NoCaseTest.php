@@ -10,9 +10,12 @@ final class NoCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
      * @param string $replacement
+     *
      * @dataProvider camelCaseProvider
      * @dataProvider constantCaseProvider
+     * @dataProvider customLocaleProvider
      * @dataProvider customReplacementCharacterProvider
      * @dataProvider dataWithNumbersProvider
      * @dataProvider nonAlphanumericSeparatorsProvider
@@ -28,9 +31,13 @@ final class NoCaseTest extends TestCase
     public function testConvert(
         string $before,
         string $after,
+        string $locale = null,
         string $replacement = ' '
     ): void {
-        $this->assertEquals($after, NoCase::convert($before, $replacement));
+        $this->assertEquals(
+            $after,
+            NoCase::convert($before, $locale, $replacement)
+        );
     }
 
     public function camelCaseProvider(): array
@@ -51,16 +58,21 @@ final class NoCaseTest extends TestCase
     public function constantCaseProvider(): array
     {
         return [
-            ['CONSTANT_CASE ', 'constant case'],
+            ['CONSTANT_CASE', 'constant case'],
             ['CONST123_FOO', 'const123 foo'],
         ];
+    }
+
+    public function customLocaleProvider(): array
+    {
+        return [['A STRING', 'a strıng', 'tr']];
     }
 
     public function customReplacementCharacterProvider(): array
     {
         return [
-            ['HELLO WORLD!', 'hello_world', '_'],
-            ['foo bar!', 'foobar', ''],
+            ['HELLO WORLD!', 'hello_world', null, '_'],
+            ['foo bar!', 'foobar', null, ''],
         ];
     }
 

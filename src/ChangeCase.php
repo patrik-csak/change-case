@@ -84,16 +84,36 @@ final class ChangeCase
         return LowerCaseFirst::convert($string);
     }
 
-    public static function no(string $string, string $replacement = ' '): string
-    {
-        return self::noCase($string, $replacement);
-    }
-
-    public static function noCase(
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     * @param string $replacement
+     *
+     * @return string
+     */
+    public static function no(
         string $string,
+        string $locale = null,
         string $replacement = ' '
     ): string {
-        return NoCase::convert($string, $replacement);
+        return NoCase::convert($string, $locale, $replacement);
+    }
+
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     * @param string $replacement
+     *
+     * @return string
+     */
+    public static function noCase(
+        string $string,
+        string $locale = null,
+        string $replacement = ' '
+    ): string {
+        return NoCase::convert($string, $locale, $replacement);
     }
 
     public static function param(string $string): string
