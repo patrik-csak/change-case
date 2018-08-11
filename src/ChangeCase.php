@@ -344,14 +344,32 @@ class ChangeCase
         return UpperCase::convert($string, $locale);
     }
 
-    public static function ucFirst(string $string): string
-    {
-        return self::upperCaseFirst($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function ucFirst(
+        string $string,
+        string $locale = null
+    ): string {
+        return UpperCaseFirst::convert($string, $locale);
     }
 
-    public static function upperCaseFirst(string $string): string
-    {
-        return UpperCaseFirst::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function upperCaseFirst(
+        string $string,
+        string $locale = null
+    ): string {
+        return UpperCaseFirst::convert($string, $locale);
     }
 
     /**

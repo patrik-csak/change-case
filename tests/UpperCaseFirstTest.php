@@ -10,21 +10,25 @@ final class UpperCaseFirstTest extends TestCase
     /**
      * @param string $before
      * @param string $after
-     * @dataProvider stringProvider
+     * @param string $locale
+     *
+     * @dataProvider dataProvider
      */
     public function testConvert(
         string $before,
-        string $after
+        string $after,
+        string $locale = null
     ): void {
-        $this->assertEquals($after, UpperCaseFirst::convert($before));
+        $this->assertEquals($after, UpperCaseFirst::convert($before, $locale));
     }
 
-    public function stringProvider(): array
+    public function dataProvider(): array
     {
         return [
             [(string)null, ''],
             ['test', 'Test'],
             ['TEST', 'TEST'],
+            ['is', 'İs', 'tr'],
         ];
     }
 }
