@@ -208,14 +208,30 @@ class ChangeCase
         return SentenceCase::convert($string);
     }
 
-    public static function snake(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function snake(string $string, string $locale = null): string
     {
-        return self::snakeCase($string);
+        return SnakeCase::convert($string, $locale);
     }
 
-    public static function snakeCase(string $string): string
-    {
-        return SnakeCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function snakeCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return SnakeCase::convert($string, $locale);
     }
 
     /**

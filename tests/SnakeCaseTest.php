@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use ChangeCase\SnakeCase;
 use PHPUnit\Framework\TestCase;
 
 final class SnakeCaseTest extends TestCase
@@ -9,15 +10,25 @@ final class SnakeCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
      * @dataProvider pascalCaseProvider
      * @dataProvider nonAlphanumericProvider
      * @dataProvider nonLatinProvider
      * @dataProvider sentenceCaseProvider
      * @dataProvider singleWordProvider
      */
-    public function testConvert(string $before, string $after): void
+    public function testConvert(
+        string $before,
+        string $after,
+        string $locale = null
+    ): void {
+        $this->assertEquals($after, SnakeCase::convert($before, $locale));
+    }
+
+    public function localeProvider(): array
     {
-        $this->assertEquals($after, \ChangeCase\SnakeCase::convert($before));
+        return [['MY STRING', 'my_strıng', 'tr']];
     }
 
     public function nonLatinProvider(): array
