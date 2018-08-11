@@ -154,14 +154,30 @@ final class ChangeCase
         return PascalCase::convert($string, $mergeNumbers);
     }
 
-    public static function path(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function path(string $string, string $locale = null): string
     {
-        return self::pathCase($string);
+        return PathCase::convert($string, $locale);
     }
 
-    public static function pathCase(string $string): string
-    {
-        return PathCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function pathCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return PathCase::convert($string, $locale);
     }
 
     public static function sentence(string $string): string

@@ -10,6 +10,9 @@ final class PathCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
+     * @dataProvider localeProvider
      * @dataProvider mixedCaseProvider
      * @dataProvider nonAlphanumericSeparatorsProvider
      * @dataProvider nonAsciiProvider
@@ -18,9 +21,15 @@ final class PathCaseTest extends TestCase
      */
     public function testConvert(
         string $before,
-        string $after
+        string $after,
+        string $locale = null
     ): void {
-        $this->assertEquals($after, PathCase::convert($before));
+        $this->assertEquals($after, PathCase::convert($before, $locale));
+    }
+
+    public function localeProvider(): array
+    {
+        return [['MY STRING', 'my/strıng', 'tr']];
     }
 
     public function mixedCaseProvider(): array
