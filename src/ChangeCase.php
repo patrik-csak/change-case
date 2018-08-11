@@ -28,14 +28,30 @@ final class ChangeCase
         return ConstantCase::convert($string);
     }
 
-    public static function dot(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function dot(string $string, string $locale = null): string
     {
-        return self::dotCase($string);
+        return DotCase::convert($string, $locale);
     }
 
-    public static function dotCase(string $string): string
-    {
-        return DotCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function dotCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return DotCase::convert($string, $locale);
     }
 
     public static function header(string $string): string

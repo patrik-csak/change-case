@@ -10,6 +10,9 @@ final class DotCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
+     * @dataProvider localeProvider
      * @dataProvider mixedCaseProvider
      * @dataProvider nonAlphanumericProvider
      * @dataProvider nonLatinProvider
@@ -18,9 +21,20 @@ final class DotCaseTest extends TestCase
      */
     public function testConvert(
         string $before,
-        string $after
+        string $after,
+        string $locale = null
     ): void {
-        $this->assertEquals($after, DotCase::convert($before));
+        $this->assertEquals($after, DotCase::convert($before, $locale));
+    }
+
+    public function testConvertWithLocale(): void
+    {
+        $this->assertEquals('my.strıng', DotCase::convert('MY STRING', 'tr'));
+    }
+
+    public function localeProvider(): array
+    {
+        return [['MY STRING', 'my.strıng', 'tr']];
     }
 
     public function mixedCaseProvider(): array
