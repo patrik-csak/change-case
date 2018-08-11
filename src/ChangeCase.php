@@ -204,14 +204,30 @@ final class ChangeCase
         return TitleCase::convert($string);
     }
 
-    public static function upper(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function upper(string $string, string $locale = null): string
     {
-        return self::upperCase($string);
+        return UpperCase::convert($string, $locale);
     }
 
-    public static function upperCase(string $string): string
-    {
-        return UpperCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function upperCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return UpperCase::convert($string, $locale);
     }
 
     public static function ucFirst(string $string): string

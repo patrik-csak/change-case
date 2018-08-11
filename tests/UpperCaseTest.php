@@ -10,19 +10,29 @@ final class UpperCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
      * @dataProvider convertStringProvider
      * @dataProvider convertUnicodeProvider
+     * @dataProvider convertWithLocaleProvider
      */
     public function testConvert(
         string $before,
-        string $after
+        string $after,
+        string $locale = null
     ): void {
-        $this->assertEquals($after, UpperCase::convert($before));
+        $this->assertEquals($after, UpperCase::convert($before, $locale));
+    }
+
+    public function testConvertWithLocale(): void
+    {
+        $this->assertEquals("\u{0130}", UpperCase::convert('i', 'tr'));
     }
 
     /**
      * @param string $string
      * @param bool $expected
+     *
      * @dataProvider isUpperProvider
      */
     public function testIs(string $string, bool $expected): void
@@ -43,6 +53,11 @@ final class UpperCaseTest extends TestCase
     public function convertUnicodeProvider(): array
     {
         return [["\u{0131}", 'I']];
+    }
+
+    public function convertWithLocaleProvider(): array
+    {
+        return [['i', "\u{0130}", 'tr']];
     }
 
     public function isUpperProvider(): array

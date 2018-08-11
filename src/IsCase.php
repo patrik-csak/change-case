@@ -30,12 +30,26 @@ class IsCase
         return LowerCase::is($string);
     }
 
-    public static function upper(string $string): bool
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return bool
+     */
+    public static function upper(string $string, string $locale = ''): bool
     {
         return self::upperCase($string);
     }
 
-    public static function upperCase(string $string): bool
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return bool
+     */
+    public static function upperCase(string $string, string $locale = ''): bool
     {
         return UpperCase::is($string);
     }
