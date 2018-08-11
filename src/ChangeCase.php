@@ -48,14 +48,30 @@ final class ChangeCase
         return HeaderCase::convert($string);
     }
 
-    public static function lower(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function lower(string $string, string $locale = null): string
     {
-        return self::lowerCase($string);
+        return LowerCase::convert($string, $locale);
     }
 
-    public static function lowerCase(string $string): string
-    {
-        return LowerCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function lowerCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return LowerCase::convert($string, $locale);
     }
 
     public static function lcFirst(string $string): string
@@ -172,14 +188,30 @@ final class ChangeCase
         return UpperCaseFirst::convert($string);
     }
 
-    public static function isLower(string $string): bool
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return bool
+     */
+    public static function isLower(string $string, string $locale = null): bool
     {
-        return self::isLowerCase($string);
+        return IsCase::lowerCase($string, $locale);
     }
 
-    public static function isLowerCase(string $string): bool
-    {
-        return IsCase::lowerCase($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return bool
+     */
+    public static function isLowerCase(
+        string $string,
+        string $locale = null
+    ): bool {
+        return IsCase::lowerCase($string, $locale);
     }
 
     public static function isUpper(string $string): bool

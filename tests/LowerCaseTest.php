@@ -10,6 +10,7 @@ final class LowerCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     *
      * @dataProvider convertProvider
      */
     public function testConvert(
@@ -19,9 +20,15 @@ final class LowerCaseTest extends TestCase
         $this->assertEquals($after, LowerCase::convert($before));
     }
 
+    public function testConvertWithLocale(): void
+    {
+        $this->assertEquals("\u{0131}", LowerCase::convert('I', 'tr'));
+    }
+
     /**
      * @param string $string
      * @param bool $expected
+     *
      * @dataProvider isProvider
      */
     public function testIs(string $string, bool $expected): void
