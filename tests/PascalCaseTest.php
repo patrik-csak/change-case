@@ -10,7 +10,10 @@ final class PascalCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
      * @param bool $mergeNumbers
+     *
+     * @dataProvider localeProvider
      * @dataProvider mergeNumbersProvider
      * @dataProvider nonAlphanumericSeparatorsProvider
      * @dataProvider pascalCaseProvider
@@ -20,17 +23,23 @@ final class PascalCaseTest extends TestCase
     public function testConvert(
         string $before,
         string $after,
+        string $locale = null,
         bool $mergeNumbers = false
     ): void {
         $this->assertEquals(
             $after,
-            PascalCase::convert($before, $mergeNumbers)
+            PascalCase::convert($before, $locale, $mergeNumbers)
         );
+    }
+
+    public function localeProvider(): array
+    {
+        return [['my STRING', 'MyStrıng', 'tr']];
     }
 
     public function mergeNumbersProvider(): array
     {
-        return [['test 1 2 3', 'Test123', true]];
+        return [['test 1 2 3', 'Test123', null, true]];
     }
 
     public function nonAlphanumericSeparatorsProvider(): array

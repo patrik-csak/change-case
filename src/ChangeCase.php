@@ -192,16 +192,36 @@ class ChangeCase
         return ParamCase::convert($string, $locale);
     }
 
-    public static function pascal(string $string, bool $mergeNumbers = false)
-    {
-        return self::pascalCase($string, $mergeNumbers);
-    }
-
-    public static function pascalCase(
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     * @param bool $mergeNumbers
+     *
+     * @return string
+     */
+    public static function pascal(
         string $string,
+        string $locale = null,
         bool $mergeNumbers = false
     ): string {
-        return PascalCase::convert($string, $mergeNumbers);
+        return PascalCase::convert($string, $locale, $mergeNumbers);
+    }
+
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     * @param bool $mergeNumbers
+     *
+     * @return string
+     */
+    public static function pascalCase(
+        string $string,
+        string $locale = null,
+        bool $mergeNumbers = false
+    ): string {
+        return PascalCase::convert($string, $locale, $mergeNumbers);
     }
 
     /**
