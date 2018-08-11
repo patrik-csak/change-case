@@ -36,14 +36,32 @@ class ChangeCase
         return CamelCase::convert($string, $locale, $mergeNumbers);
     }
 
-    public static function constant(string $string): string
-    {
-        return self::constantCase($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function constant(
+        string $string,
+        string $locale = null
+    ): string {
+        return ConstantCase::convert($string, $locale);
     }
 
-    public static function constantCase(string $string): string
-    {
-        return ConstantCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function constantCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return ConstantCase::convert($string, $locale);
     }
 
     /**

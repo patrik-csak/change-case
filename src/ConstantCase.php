@@ -2,10 +2,15 @@
 
 namespace ChangeCase;
 
-final class ConstantCase
+class ConstantCase
 {
-    public static function convert(string $string): string
-    {
-        return UpperCase::convert(SnakeCase::convert($string));
+    public static function convert(
+        string $string,
+        string $locale = null
+    ): string {
+        return UpperCase::convert(
+            SnakeCase::convert($string, $locale),
+            $locale
+        );
     }
 }
