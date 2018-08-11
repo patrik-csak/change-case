@@ -184,14 +184,30 @@ final class ChangeCase
         return SnakeCase::convert($string);
     }
 
-    public static function swap(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function swap(string $string, string $locale = null): string
     {
-        return self::swapCase($string);
+        return SwapCase::convert($string, $locale);
     }
 
-    public static function swapCase(string $string): string
-    {
-        return SwapCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function swapCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return SwapCase::convert($string, $locale);
     }
 
     public static function title(string $string): string

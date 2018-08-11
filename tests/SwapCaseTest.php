@@ -10,13 +10,16 @@ final class SwapCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
      * @dataProvider dataProvider
      */
     public function testConvert(
         string $before,
-        string $after
+        string $after,
+        string $locale = null
     ): void {
-        $this->assertEquals($after, SwapCase::convert($before));
+        $this->assertEquals($after, SwapCase::convert($before, $locale));
     }
 
     public function dataProvider(): array
@@ -27,6 +30,7 @@ final class SwapCaseTest extends TestCase
             ['TEST', 'test'],
             ['PascalCase', 'pASCALcASE'],
             ['Iñtërnâtiônàlizætiøn', 'iÑTËRNÂTIÔNÀLIZÆTIØN'],
+            ['My String', 'mY sTRİNG', 'tr'],
         ];
     }
 }

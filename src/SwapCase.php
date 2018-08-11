@@ -2,17 +2,27 @@
 
 namespace ChangeCase;
 
-final class SwapCase
+class SwapCase
 {
-    public static function convert(string $string): string
-    {
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function convert(
+        string $string,
+        string $locale = null
+    ): string {
         $result = '';
-        $stringLength = \strlen($string);
 
-        for ($i = 0; $i < $stringLength; $i++) {
+        for ($i = 0, $n = mb_strlen($string); $i < $n; $i++) {
             $char = mb_substr($string, $i, 1);
-            $charUpper = mb_strtoupper($char);
-            $result .= $charUpper === $char ? mb_strtolower($char) : $charUpper;
+
+            $result .= IsCase::upper($char)
+                ? LowerCase::convert($char, $locale)
+                : UpperCase::convert($char, $locale);
         }
 
         return $result;
