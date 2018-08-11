@@ -260,14 +260,30 @@ class ChangeCase
         return SwapCase::convert($string, $locale);
     }
 
-    public static function title(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function title(string $string, string $locale = null): string
     {
-        return self::titleCase($string);
+        return TitleCase::convert($string, $locale);
     }
 
-    public static function titleCase(string $string): string
-    {
-        return TitleCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function titleCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return TitleCase::convert($string, $locale);
     }
 
     /**

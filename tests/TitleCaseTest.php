@@ -10,15 +10,26 @@ final class TitleCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
+     * @dataProvider localeProvider
      * @dataProvider nonAlphanumericSeparatorsProvider
      * @dataProvider nonAsciiProvider
      * @dataProvider pascalCaseProvider
      * @dataProvider sentenceCaseProvider
      * @dataProvider singleWordProvider
      */
-    public function testConvert(string $before, string $after): void
+    public function testConvert(
+        string $before,
+        string $after,
+        string $locale = null
+    ): void {
+        $this->assertEquals($after, TitleCase::convert($before, $locale));
+    }
+
+    public function localeProvider(): array
     {
-        $this->assertEquals($after, TitleCase::convert($before));
+        return [['STRING', 'Strıng', 'tr']];
     }
 
     public function nonAlphanumericSeparatorsProvider(): array
