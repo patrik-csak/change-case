@@ -1,27 +1,34 @@
 {
-  "name": "ptrkcsk/change-case",
-  "description": "",
-  "version": "0.0.0",
-  "type": "library",
-  "keywords": [
-    "case"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Patrik Csak",
-      "email": "patrik@csak.email"
+    "name": "ptrkcsk/change-case",
+    "description": "Convert strings to camelCase, CONSTANT_CASE, dot.case, Header-Case, lower case, param case, PascalCase, path/case, Sentence case, snake_case, Title Case, UPPER CASE, and more!",
+    "type": "library",
+    "keywords": [
+        "case", "change case", "camel case", "constant case", "dot case",
+        "header case", "lower case", "lower case first", "param case",
+        "kebab case", "pascale case", "upper camel case", "path case",
+        "sentence case", "snake case", "title case", "upper case",
+        "upper case first"
+    ],
+    "homepage": "https://github.com/ptrkcsk/change-case",
+    "support": {
+        "issues": "https://github.com/ptrkcsk/fa-wp-admin-menu-icons/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrik Csak",
+            "email": "patrik@csak.email"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ChangeCase\\": "src/"
+        }
     }
-  ],
-  "require": {
-    "php": ">=7.1"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^7.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "ChangeCase\\": "src/"
-    }
-  }
 }
