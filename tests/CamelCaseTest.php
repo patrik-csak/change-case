@@ -10,7 +10,10 @@ final class CamelCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
      * @param bool $mergeNumbers
+     *
+     * @dataProvider localeProvider
      * @dataProvider nonAlphanumericSeparatorsProvider
      * @dataProvider nonLatinProvider
      * @dataProvider numberGroupingProvider
@@ -22,9 +25,18 @@ final class CamelCaseTest extends TestCase
     public function testConvert(
         string $before,
         string $after,
+        string $locale = null,
         bool $mergeNumbers = false
     ): void {
-        $this->assertEquals($after, CamelCase::convert($before, $mergeNumbers));
+        $this->assertEquals(
+            $after,
+            CamelCase::convert($before, $locale, $mergeNumbers)
+        );
+    }
+
+    public function localeProvider(): array
+    {
+        return [['STRING 1.2', 'strıng_1_2', 'tr']];
     }
 
     public function nonAlphanumericSeparatorsProvider(): array
@@ -42,7 +54,7 @@ final class CamelCaseTest extends TestCase
 
     public function numberGroupingProvider(): array
     {
-        return [['test 1 2 3', 'test123', true]];
+        return [['test 1 2 3', 'test123', null, true]];
     }
 
     public function pascalCasedStringsProvider(): array

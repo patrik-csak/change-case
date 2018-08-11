@@ -4,18 +4,36 @@ namespace ChangeCase;
 
 final class ChangeCase
 {
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     * @param bool $mergeNumbers
+     *
+     * @return string
+     */
     public static function camel(
         string $string,
+        string $locale = null,
         bool $mergeNumbers = false
     ): string {
-        return self::camelCase($string, $mergeNumbers);
+        return CamelCase::convert($string, $locale, $mergeNumbers);
     }
 
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     * @param bool $mergeNumbers
+     *
+     * @return string
+     */
     public static function camelCase(
         string $string,
+        string $locale = null,
         bool $mergeNumbers = false
     ): string {
-        return CamelCase::convert($string, $mergeNumbers);
+        return CamelCase::convert($string, $locale, $mergeNumbers);
     }
 
     public static function constant(string $string): string
