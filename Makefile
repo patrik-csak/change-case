@@ -1,3 +1,7 @@
+macOs = Darwin
+os = $(shell uname)
+phpunit = vendor/bin/phpunit
+
 ########################################################################
 # Standard targets
 # See https://www.gnu.org/software/make/manual/html_node/Standard-Targets.html
@@ -10,13 +14,21 @@ all : ;
 clean :
 	@$(RM) -r vendor
 	@$(RM) composer.phar
+	@$(RM) -r tests/coverage
 
 ########################################################################
 # Phony targets
 ########################################################################
 
 .PHONY : test
-test : vendor/bin/phpunit ; $<
+test : $(phpunit) ; $<
+
+.PHONY : test-coverage-html
+test-coverage-html : $(phpunit)
+	$< --coverage-html tests/coverage
+ifeq ($(os), $(macOs))
+	open tests/coverage/index.html
+endif
 
 ########################################################################
 # Real targets
