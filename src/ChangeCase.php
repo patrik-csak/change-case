@@ -150,14 +150,30 @@ class ChangeCase
         return NoCase::convert($string, $locale, $replacement);
     }
 
-    public static function param(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function param(string $string, string $locale = null): string
     {
-        return self::paramCase($string);
+        return ParamCase::convert($string, $locale);
     }
 
-    public static function paramCase(string $string): string
-    {
-        return ParamCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function paramCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return ParamCase::convert($string, $locale);
     }
 
     public static function pascal(string $string, bool $mergeNumbers = false)

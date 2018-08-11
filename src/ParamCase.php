@@ -2,10 +2,19 @@
 
 namespace ChangeCase;
 
-final class ParamCase
+class ParamCase
 {
-    public static function convert(string $string): string
-    {
-        return NoCase::convert($string, '-');
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function convert(
+        string $string,
+        string $locale = null
+    ): string {
+        return NoCase::convert($string, $locale, '-');
     }
 }
