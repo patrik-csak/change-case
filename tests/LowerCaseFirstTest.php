@@ -10,13 +10,15 @@ final class LowerCaseFirstTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     *
      * @dataProvider stringProvider
      */
     public function testConvert(
         string $before,
-        string $after
+        string $after,
+        string $locale = null
     ): void {
-        $this->assertEquals($after, LowerCaseFirst::convert($before));
+        $this->assertEquals($after, LowerCaseFirst::convert($before, $locale));
     }
 
     public function stringProvider(): array
@@ -25,6 +27,7 @@ final class LowerCaseFirstTest extends TestCase
             [(string)null, ''],
             ['Test', 'test'],
             ['TEST', 'tEST'],
+            ['İs', 'is', 'tr'],
         ];
     }
 }

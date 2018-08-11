@@ -142,14 +142,32 @@ class ChangeCase
         return LowerCase::convert($string, $locale);
     }
 
-    public static function lcFirst(string $string): string
-    {
-        return self::lowerCaseFirst($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function lcFirst(
+        string $string,
+        string $locale = null
+    ): string {
+        return LowerCaseFirst::convert($string, $locale);
     }
 
-    public static function lowerCaseFirst(string $string): string
-    {
-        return LowerCaseFirst::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function lowerCaseFirst(
+        string $string,
+        string $locale = null
+    ): string {
+        return LowerCaseFirst::convert($string, $locale);
     }
 
     /**
