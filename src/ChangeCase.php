@@ -268,14 +268,32 @@ class ChangeCase
         return PathCase::convert($string, $locale);
     }
 
-    public static function sentence(string $string): string
-    {
-        return self::sentenceCase($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function sentence(
+        string $string,
+        string $locale = null
+    ): string {
+        return SentenceCase::convert($string, $locale);
     }
 
-    public static function sentenceCase(string $string): string
-    {
-        return SentenceCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function sentenceCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return SentenceCase::convert($string, $locale);
     }
 
     /**

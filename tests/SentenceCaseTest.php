@@ -10,13 +10,23 @@ final class SentenceCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
      * @dataProvider nonAlphanumericSeparatorsProvider
      * @dataProvider sentenceCaseProvider
      * @dataProvider singleWordProvider
      */
-    public function testConvert(string $before, string $after): void
+    public function testConvert(
+        string $before,
+        string $after,
+        string $locale = null
+    ): void {
+        $this->assertEquals($after, SentenceCase::convert($before, $locale));
+    }
+
+    public function localeProvider(): array
     {
-        $this->assertEquals($after, SentenceCase::convert($before));
+        return [['MY_STRİNG', 'My string', 'tr']];
     }
 
     public function nonAlphanumericSeparatorsProvider(): array

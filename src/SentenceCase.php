@@ -2,10 +2,22 @@
 
 namespace ChangeCase;
 
-final class SentenceCase
+class SentenceCase
 {
-    public static function convert(string $string): string
-    {
-        return UpperCaseFirst::convert(NoCase::convert($string));
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function convert(
+        string $string,
+        string $locale = null
+    ): string {
+        return UpperCaseFirst::convert(
+            NoCase::convert($string, $locale),
+            $locale
+        );
     }
 }
