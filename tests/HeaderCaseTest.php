@@ -10,14 +10,25 @@ final class HeaderCaseTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
+     *
+     * @dataProvider localeProvider
      * @dataProvider nonAlphanumericSeparatorsProvider
      * @dataProvider pascalCaseProvider
      * @dataProvider sentenceCaseProvider
      * @dataProvider singleWordProvider
      */
-    public function testConvert(string $before, string $after): void
+    public function testConvert(
+        string $before,
+        string $after,
+        string $locale = null
+    ): void {
+        $this->assertEquals($after, HeaderCase::convert($before, $locale));
+    }
+
+    public function localeProvider(): array
     {
-        $this->assertEquals($after, HeaderCase::convert($before));
+        return [['MY_STRING', 'My-Strıng', 'tr']];
     }
 
     public function nonAlphanumericSeparatorsProvider(): array

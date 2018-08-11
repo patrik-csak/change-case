@@ -72,14 +72,30 @@ class ChangeCase
         return DotCase::convert($string, $locale);
     }
 
-    public static function header(string $string): string
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function header(string $string, string $locale = null): string
     {
-        return self::headerCase($string);
+        return HeaderCase::convert($string, $locale);
     }
 
-    public static function headerCase(string $string): string
-    {
-        return HeaderCase::convert($string);
+    /**
+     * @param string $string
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
+    public static function headerCase(
+        string $string,
+        string $locale = null
+    ): string {
+        return HeaderCase::convert($string, $locale);
     }
 
     /**
