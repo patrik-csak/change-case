@@ -2,7 +2,7 @@
 
 namespace ChangeCase;
 
-final class ChangeCase
+class ChangeCase
 {
     /**
      * @param string $string
