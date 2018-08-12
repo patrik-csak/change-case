@@ -13,7 +13,7 @@ class IsCase
      */
     public static function lower(string $string, string $locale = null): bool
     {
-        return LowerCase::is($string);
+        return LowerCase::is($string, $locale);
     }
 
     /**
@@ -27,7 +27,7 @@ class IsCase
         string $string,
         string $locale = null
     ): bool {
-        return LowerCase::is($string);
+        return LowerCase::is($string, $locale);
     }
 
     /**
@@ -39,7 +39,7 @@ class IsCase
      */
     public static function upper(string $string, string $locale = ''): bool
     {
-        return self::upperCase($string);
+        return self::upperCase($string, $locale);
     }
 
     /**
@@ -51,6 +51,6 @@ class IsCase
      */
     public static function upperCase(string $string, string $locale = ''): bool
     {
-        return UpperCase::is($string);
+        return UpperCase::is($string, $locale);
     }
 }

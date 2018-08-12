@@ -10,6 +10,7 @@ final class LowerCaseFirstTest extends TestCase
     /**
      * @param string $before
      * @param string $after
+     * @param string $locale
      *
      * @dataProvider stringProvider
      */
