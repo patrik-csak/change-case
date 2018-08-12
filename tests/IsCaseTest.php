@@ -11,7 +11,7 @@ final class IsCaseTest extends TestCase
     {
         $this->assertTrue(IsCase::upper('ALLUPPERCASE'));
         $this->assertFalse(IsCase::upperCase('NotAllUpperCase'));
-        $this->assertFalse(IsCase::UpperCase('alllowercase'));
+        $this->assertFalse(IsCase::upperCase('alllowercase'));
     }
 
     public function testIsLowerCase(): void
