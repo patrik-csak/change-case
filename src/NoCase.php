@@ -19,15 +19,15 @@ class NoCase
     ): string {
         $string = preg_replace(
             [
-                Constants::CAMEL_CASE_REGEX,
-                Constants::CAMEL_CASE_UPPER_REGEX,
+                Regex::CAMEL_CASE,
+                Regex::CAMEL_CASE_UPPER,
             ],
             '${1} ${2}',
             $string
         );
 
         preg_match_all(
-            Constants::NON_WORD_REGEX,
+            Regex::NON_WORD,
             $string,
             $matches,
             PREG_OFFSET_CAPTURE
