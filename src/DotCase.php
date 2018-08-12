@@ -1,10 +1,22 @@
 <?php
 
+/**
+ * DotCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * DotCase
+ */
 class DotCase
 {
     /**
+     * Dot case a string.
+     *
+     * @example dot-convert.php
+     * @see https://github.com/blakeembrey/dot-case
+     *
      * @param string $string
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`

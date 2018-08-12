@@ -27,7 +27,7 @@ final class CamelCaseTest extends TestCase
         string $after,
         string $locale = null,
         bool $mergeNumbers = false
-    ): void {
+    ) {
         $this->assertEquals(
             $after,
             CamelCase::convert($before, $locale, $mergeNumbers)

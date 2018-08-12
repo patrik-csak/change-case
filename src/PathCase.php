@@ -1,11 +1,23 @@
 <?php
 
+/**
+ * PathCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * PathCase
+ */
 class PathCase
 {
     /**
-     * @param string $string
+     * Path case a string.
+     *
+     * @example path-convert.php
+     * @see https://github.com/blakeembrey/path-case
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *

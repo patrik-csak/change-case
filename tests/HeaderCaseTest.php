@@ -22,7 +22,7 @@ final class HeaderCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, HeaderCase::convert($before, $locale));
     }
 

@@ -20,11 +20,11 @@ final class UpperCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, UpperCase::convert($before, $locale));
     }
 
-    public function testConvertWithLocale(): void
+    public function testConvertWithLocale()
     {
         $this->assertEquals("\u{0130}", UpperCase::convert('i', 'tr'));
     }
@@ -35,7 +35,7 @@ final class UpperCaseTest extends TestCase
      *
      * @dataProvider isUpperProvider
      */
-    public function testIs(string $string, bool $expected): void
+    public function testIs(string $string, bool $expected)
     {
         $this->assertEquals($expected, UpperCase::is($string));
     }

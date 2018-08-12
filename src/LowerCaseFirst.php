@@ -1,9 +1,28 @@
 <?php
 
+/**
+ * LowercaseFirst
+ */
+
 namespace ChangeCase;
 
+/**
+ * LowercaseFirst
+ */
 class LowerCaseFirst
 {
+    /**
+     * Lower case the first character of a string.
+     *
+     * @example lower-first-convert.php
+     * @see https://github.com/blakeembrey/lower-case-first
+     *
+     * @param string $string The string to convert
+     * @param string $locale Supports the following locales: `'az'`, `'lt'`,
+     *                       `'tr'`
+     *
+     * @return string
+     */
     public static function convert(
         string $string,
         string $locale = null

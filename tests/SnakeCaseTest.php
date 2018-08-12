@@ -22,7 +22,7 @@ final class SnakeCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, SnakeCase::convert($before, $locale));
     }
 

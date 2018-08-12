@@ -20,7 +20,7 @@ final class SentenceCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, SentenceCase::convert($before, $locale));
     }
 

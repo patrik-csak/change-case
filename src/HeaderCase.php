@@ -1,11 +1,23 @@
 <?php
 
+/**
+ * HeaderCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * HeaderCase
+ */
 class HeaderCase
 {
     /**
-     * @param string $string
+     * Header case a string.
+     *
+     * @example header-convert.php
+     * @see https://github.com/blakeembrey/header-case
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *

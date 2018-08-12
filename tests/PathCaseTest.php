@@ -23,7 +23,7 @@ final class PathCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, PathCase::convert($before, $locale));
     }
 

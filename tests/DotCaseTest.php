@@ -23,11 +23,11 @@ final class DotCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, DotCase::convert($before, $locale));
     }
 
-    public function testConvertWithLocale(): void
+    public function testConvertWithLocale()
     {
         $this->assertEquals('my.strıng', DotCase::convert('MY STRING', 'tr'));
     }

@@ -1,11 +1,23 @@
 <?php
 
+/**
+ * SnakeCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * SnakeCase
+ */
 class SnakeCase
 {
     /**
-     * @param string $string
+     * Snake case a string.
+     *
+     * @example snake-convert.php
+     * @see https://github.com/blakeembrey/snake-case
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *

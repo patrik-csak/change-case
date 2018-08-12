@@ -22,7 +22,7 @@ final class ConstantCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, ConstantCase::convert($before, $locale));
     }
 

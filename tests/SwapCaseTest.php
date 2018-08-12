@@ -18,7 +18,7 @@ final class SwapCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, SwapCase::convert($before, $locale));
     }
 

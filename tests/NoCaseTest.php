@@ -33,7 +33,7 @@ final class NoCaseTest extends TestCase
         string $after,
         string $locale = null,
         string $replacement = ' '
-    ): void {
+    ) {
         $this->assertEquals(
             $after,
             NoCase::convert($before, $locale, $replacement)

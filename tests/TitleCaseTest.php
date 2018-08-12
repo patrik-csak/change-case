@@ -23,7 +23,7 @@ final class TitleCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, TitleCase::convert($before, $locale));
     }
 

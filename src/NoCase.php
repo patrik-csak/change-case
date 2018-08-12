@@ -1,14 +1,25 @@
 <?php
 
+/**
+ * NoCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * NoCase
+ */
 class NoCase
 {
     /**
-     * @param string $string
+     * Transform a string to lower space cased.
+     *
+     * Optional locale and replacement character supported.
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
-     * @param string $replacement
+     * @param string $replacement Replacement character
      *
      * @return string
      */
@@ -33,7 +44,7 @@ class NoCase
             PREG_OFFSET_CAPTURE
         );
 
-        [$matches] = $matches;
+        list($matches) = $matches;
         $matchesLength = \count($matches);
 
         // Fix incorrect offsets due to multibyte characters
@@ -44,7 +55,7 @@ class NoCase
         unset($m);
 
         foreach ($matches as $i => &$m) {
-            [$match, $offset] = $m;
+            list($match, $offset) = $m;
             $matchLength = mb_strlen($match);
             $stringLength = mb_strlen($string);
 

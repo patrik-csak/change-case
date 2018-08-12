@@ -7,163 +7,129 @@ use PHPUnit\Framework\TestCase;
 
 final class ChangeCaseTest extends TestCase
 {
-    public function testCamelCase(): void
+    public function testCamel()
     {
         $this->assertEquals('test', ChangeCase::camel('test'));
-        $this->assertEquals('test', ChangeCase::camelCase('TEST'));
+        $this->assertEquals('test', ChangeCase::lowerCamel('TEST'));
     }
 
-    public function testConstantCase(): void
+    public function testConstant()
     {
         $this->assertEquals('TEST_STRING', ChangeCase::constant('testString'));
         $this->assertEquals(
             'TEST_STRING',
-            ChangeCase::constantCase('Test String')
+            ChangeCase::screamingSnake('Test String')
         );
+        $this->assertEquals('TEST_STRING', ChangeCase::constant('Test_String'));
         $this->assertEquals(
             'TEST_STRING',
-            ChangeCase::constantCase('Test_String')
-        );
-        $this->assertEquals(
-            'TEST_STRING',
-            ChangeCase::constantCase('Test-String')
+            ChangeCase::screamingSnake('Test-String')
         );
         $this->assertEquals(
             'A_BETTER_TEST',
-            ChangeCase::constantCase('a---better__test')
+            ChangeCase::constant('a---better__test')
         );
     }
 
-    public function testDotCase(): void
+    public function testDot()
     {
         $this->assertEquals('test.string', ChangeCase::dot('test.string'));
-        $this->assertEquals('test.string', ChangeCase::dotCase('Test String'));
-        $this->assertEquals('test.string', ChangeCase::dotCase('Test_String'));
-        $this->assertEquals('test.string', ChangeCase::dotCase('Test-String'));
+        $this->assertEquals('test.string', ChangeCase::dot('Test String'));
+        $this->assertEquals('test.string', ChangeCase::dot('Test_String'));
+        $this->assertEquals('test.string', ChangeCase::dot('Test-String'));
         $this->assertEquals(
             'a.better.test',
-            ChangeCase::dotCase('a---better__test')
+            ChangeCase::dot('a---better__test')
         );
     }
 
-    public function testHeaderCase(): void
+    public function testHeader()
     {
-        $this->assertEquals(
-            'A-Simple-Test',
+        $this->assertEquals('A-Simple-Test',
             ChangeCase::header('a-simple-test')
         );
         $this->assertEquals(
             'This-Is-A-Test',
-            ChangeCase::headerCase('this is a test')
+            ChangeCase::header('this is a test')
         );
         $this->assertEquals(
             'This-Is-A-Test',
-            ChangeCase::headerCase('this_is_a_test')
+            ChangeCase::header('this_is_a_test')
         );
         $this->assertEquals(
             'This-Is-A-Test',
-            ChangeCase::headerCase('this-is-a-test')
+            ChangeCase::header('this-is-a-test')
         );
     }
 
-    public function testLowerCase(): void
+    public function testLower()
     {
         $this->assertEquals('test', ChangeCase::lower('test'));
-        $this->assertEquals('test', ChangeCase::lowerCase('TEST'));
+        $this->assertEquals('test', ChangeCase::lower('TEST'));
     }
 
-    public function testLowerCaseFirst(): void
+    public function testLowerFirst()
     {
-        $this->assertEquals('tEST', ChangeCase::lcFirst('TEST'));
-        $this->assertEquals('test', ChangeCase::lowerCaseFirst('Test'));
+        $this->assertEquals('tEST', ChangeCase::lowerFirst('TEST'));
+        $this->assertEquals('test', ChangeCase::lowerFirst('Test'));
     }
 
-    public function testNoCase(): void
+    public function testNo()
     {
-        $this->assertEquals(
-            'a simple test',
-            ChangeCase::no('a-simple-test')
-        );
-        $this->assertEquals(
-            'this is a test',
-            ChangeCase::noCase('this is a test')
-        );
-        $this->assertEquals(
-            'this is a test',
-            ChangeCase::noCase('this_is_a_test')
-        );
-        $this->assertEquals(
-            'this is a test',
-            ChangeCase::noCase('this-is-a-test')
-        );
+        $this->assertEquals('a simple test', ChangeCase::no('a-simple-test'));
+        $this->assertEquals('this is a test', ChangeCase::no('this is a test'));
+        $this->assertEquals('this is a test', ChangeCase::no('this_is_a_test'));
+        $this->assertEquals('this is a test', ChangeCase::no('this-is-a-test'));
     }
 
-    public function testParamCase(): void
+    public function testParam()
     {
-        $this->assertEquals(
-            'test-string',
-            ChangeCase::param('testString')
-        );
-        $this->assertEquals(
-            'test-string',
-            ChangeCase::paramCase('Test String')
-        );
-        $this->assertEquals(
-            'test-string',
-            ChangeCase::paramCase('Test_String')
-        );
-        $this->assertEquals(
-            'test-string',
-            ChangeCase::paramCase('Test-String')
-        );
+        $this->assertEquals('test-string', ChangeCase::param('testString'));
+        $this->assertEquals('test-string', ChangeCase::kebab('Test String'));
+        $this->assertEquals('test-string', ChangeCase::param('Test_String'));
+        $this->assertEquals('test-string', ChangeCase::kebab('Test-String'));
         $this->assertEquals(
             'a-better-test',
-            ChangeCase::paramCase('a---better__test')
+            ChangeCase::param('a---better__test')
         );
     }
 
-    public function testPascalCase(): void
+    public function testPascal()
     {
         $this->assertEquals('TestString', ChangeCase::pascal('testString'));
         $this->assertEquals(
             'TestString',
-            ChangeCase::pascalCase('Test String')
+            ChangeCase::upperCamel('Test String')
         );
+        $this->assertEquals('TestString', ChangeCase::pascal('Test_String'));
         $this->assertEquals(
             'TestString',
-            ChangeCase::pascalCase('Test_String')
+            ChangeCase::upperCamel('Test-String')
         );
-        $this->assertEquals(
-            'TestString',
-            ChangeCase::pascalCase('Test-String')
-        );
-        $this->assertEquals(
-            'FacebookApi',
-            ChangeCase::pascalCase('Facebook API')
-        );
+        $this->assertEquals('FacebookApi', ChangeCase::pascal('Facebook API'));
         $this->assertEquals(
             'ATestAgain',
-            ChangeCase::pascalCase('a-test-again')
+            ChangeCase::upperCamel('a-test-again')
         );
         $this->assertEquals(
             'ABetterTest',
-            ChangeCase::pascalCase('a---better__test')
+            ChangeCase::pascal('a---better__test')
         );
     }
 
-    public function testPathCase(): void
+    public function testPath()
     {
         $this->assertEquals('test/string', ChangeCase::path('testString'));
-        $this->assertEquals('test/string', ChangeCase::pathCase('Test String'));
-        $this->assertEquals('test/string', ChangeCase::pathCase('Test_String'));
-        $this->assertEquals('test/string', ChangeCase::pathCase('Test-String'));
+        $this->assertEquals('test/string', ChangeCase::path('Test String'));
+        $this->assertEquals('test/string', ChangeCase::path('Test_String'));
+        $this->assertEquals('test/string', ChangeCase::path('Test-String'));
         $this->assertEquals(
             'a/better/test',
-            ChangeCase::pathCase('a---better__test')
+            ChangeCase::path('a---better__test')
         );
     }
 
-    public function testSentenceCase(): void
+    public function testSentence()
     {
         $this->assertEquals(
             'A simple test',
@@ -171,49 +137,37 @@ final class ChangeCaseTest extends TestCase
         );
         $this->assertEquals(
             'This is a test',
-            ChangeCase::sentenceCase('this is a test')
+            ChangeCase::sentence('this is a test')
         );
         $this->assertEquals(
             'This is a test',
-            ChangeCase::sentenceCase('this_is_a_test')
+            ChangeCase::sentence('this_is_a_test')
         );
         $this->assertEquals(
             'This is a test',
-            ChangeCase::sentenceCase('this-is-a-test')
+            ChangeCase::sentence('this-is-a-test')
         );
     }
 
-    public function testSnakeCase(): void
+    public function testSnake()
     {
         $this->assertEquals('test_string', ChangeCase::snake('testString'));
-        $this->assertEquals(
-            'test_string',
-            ChangeCase::snakeCase('Test String')
-        );
-        $this->assertEquals(
-            'test_string',
-            ChangeCase::snakeCase('Test_String')
-        );
-        $this->assertEquals(
-            'test_string',
-            ChangeCase::snakeCase('Test-String')
-        );
+        $this->assertEquals('test_string', ChangeCase::pothole('Test String'));
+        $this->assertEquals('test_string', ChangeCase::snake('Test_String'));
+        $this->assertEquals('test_string', ChangeCase::pothole('Test-String'));
         $this->assertEquals(
             'a_better_test',
-            ChangeCase::snakeCase('a---better__test')
+            ChangeCase::snake('a---better__test')
         );
     }
 
-    public function testSwapCase(): void
+    public function testSwap()
     {
         $this->assertEquals('rAnDomCASe', ChangeCase::swap('RaNdOMcasE'));
-        $this->assertEquals(
-            'Mix iT.dOWN?',
-            ChangeCase::swapCase('mIX It.Down?')
-        );
+        $this->assertEquals('Mix iT.dOWN?', ChangeCase::swap('mIX It.Down?'));
     }
 
-    public function testTitleCase(): void
+    public function testTitle()
     {
         $this->assertEquals(
             'A Test Sentence',
@@ -221,45 +175,45 @@ final class ChangeCaseTest extends TestCase
         );
         $this->assertEquals(
             'I Found A Bug',
-            ChangeCase::titleCase('i found a bug')
+            ChangeCase::start('i found a bug')
         );
         $this->assertEquals(
             'Some Things',
-            ChangeCase::titleCase("some things'")
+            ChangeCase::title("some things'")
         );
         $this->assertEquals(
             'Quotes',
-            ChangeCase::titleCase('"quotes"')
+            ChangeCase::start('"quotes"')
         );
         $this->assertEquals(
             'Hyphen Ness',
-            ChangeCase::titleCase('hyphen-ness')
+            ChangeCase::title('hyphen-ness')
         );
     }
 
-    public function testUpperCase(): void
+    public function testUpper()
     {
         $this->assertEquals('TEST', ChangeCase::upper('TEST'));
-        $this->assertEquals('TEST', ChangeCase::upperCase('test'));
+        $this->assertEquals('TEST', ChangeCase::allCaps('test'));
     }
 
-    public function testUpperCaseFirst(): void
+    public function testUpperFirst()
     {
-        $this->assertEquals('TEST', ChangeCase::ucFirst('TEST'));
-        $this->assertEquals('Test', ChangeCase::upperCaseFirst('test'));
+        $this->assertEquals('TEST', ChangeCase::upperFirst('TEST'));
+        $this->assertEquals('Test', ChangeCase::upperFirst('test'));
     }
 
-    public function testIsUpperCase(): void
+    public function testIsUpper()
     {
         $this->assertTrue(ChangeCase::isUpper('ALLUPPERCASE'));
-        $this->assertFalse(ChangeCase::isUpperCase('NotAllUpperCase'));
-        $this->assertFalse(ChangeCase::isUpperCase('alllowercase'));
+        $this->assertFalse(ChangeCase::isUpper('NotAllUpperCase'));
+        $this->assertFalse(ChangeCase::isUpper('alllowercase'));
     }
 
-    public function testIsLowerCase(): void
+    public function testIsLower()
     {
         $this->assertFalse(ChangeCase::isLower('ALLUPPERCASE'));
-        $this->assertFalse(ChangeCase::isLowerCase('NotAllUpperCase'));
-        $this->assertTrue(ChangeCase::isLowerCase('alllowercase'));
+        $this->assertFalse(ChangeCase::isLower('NotAllUpperCase'));
+        $this->assertTrue(ChangeCase::isLower('alllowercase'));
     }
 }

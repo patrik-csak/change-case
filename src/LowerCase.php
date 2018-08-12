@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * LowerCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * LowerCase
+ */
 class LowerCase
 {
-    private const LANGUAGES = [
+    const LANGUAGES = [
         'az' => [
             'regex' => "/[\u{0130}]/u",
             'map'    => [
@@ -35,7 +42,12 @@ class LowerCase
     ];
 
     /**
-     * @param string $string
+     * Lower case a string.
+     *
+     * @example lower-convert.php
+     * @see https://github.com/blakeembrey/lower-case
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *
@@ -66,6 +78,11 @@ class LowerCase
 
 
     /**
+     * Check if a string is lower case.
+     *
+     * @example lower-is.php
+     * @see https://github.com/blakeembrey/is-lower-case
+     *
      * @param string $string
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`

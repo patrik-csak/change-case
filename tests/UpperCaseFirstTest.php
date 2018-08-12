@@ -18,7 +18,7 @@ final class UpperCaseFirstTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, UpperCaseFirst::convert($before, $locale));
     }
 

@@ -1,11 +1,23 @@
 <?php
 
+/**
+ * SwapCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * SwapCase
+ */
 class SwapCase
 {
     /**
-     * @param string $string
+     * Swap the case of a string.
+     *
+     * @example swap-convert.php
+     * @see https://github.com/blakeembrey/swap-case
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *
@@ -20,7 +32,7 @@ class SwapCase
         for ($i = 0, $n = mb_strlen($string); $i < $n; $i++) {
             $char = mb_substr($string, $i, 1);
 
-            $result .= IsCase::upper($char)
+            $result .= UpperCase::is($char)
                 ? LowerCase::convert($char, $locale)
                 : UpperCase::convert($char, $locale);
         }

@@ -25,7 +25,7 @@ final class PascalCaseTest extends TestCase
         string $after,
         string $locale = null,
         bool $mergeNumbers = false
-    ): void {
+    ) {
         $this->assertEquals(
             $after,
             PascalCase::convert($before, $locale, $mergeNumbers)

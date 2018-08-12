@@ -23,7 +23,7 @@ final class ParamCaseTest extends TestCase
         string $before,
         string $after,
         string $locale = null
-    ): void {
+    ) {
         $this->assertEquals($after, ParamCase::convert($before, $locale));
     }
 

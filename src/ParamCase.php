@@ -1,11 +1,23 @@
 <?php
 
+/**
+ * ParamCase
+ */
+
 namespace ChangeCase;
 
+/**
+ * ParamCase
+ */
 class ParamCase
 {
     /**
-     * @param string $string
+     * Param case a string.
+     *
+     * @example param-convert.php
+     * @see https://github.com/blakeembrey/param-case
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *

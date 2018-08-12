@@ -1,11 +1,22 @@
 <?php
 
+/**
+ * TitleCase
+ */
 namespace ChangeCase;
 
+/**
+ * TitleCase
+ */
 class TitleCase
 {
     /**
-     * @param string $string
+     * Title case a string.
+     *
+     * @example title-convert.php
+     * @see https://github.com/blakeembrey/title-case
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *

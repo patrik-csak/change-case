@@ -1,11 +1,23 @@
 <?php
 
+/**
+ * UpperCaseFirst
+ */
+
 namespace ChangeCase;
 
+/**
+ * UpperCaseFirst
+ */
 class UpperCaseFirst
 {
     /**
-     * @param string $string
+     * Upper case the first character of a string.
+     *
+     * @example upper-case-first-convert.php
+     * @see https://github.com/blakeembrey/upper-case-first
+     *
+     * @param string $string The string to convert
      * @param string $locale Supports the following locales: `'az'`, `'lt'`,
      *                       `'tr'`
      *
