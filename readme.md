@@ -15,7 +15,7 @@ $ composer require ptrkcsk/change-case
 
 ## Case styles
 
-| Style (& Aliases) | Example |
+| Style (& aliases) | Example |
 |---|---|
 | [Camel, lower camel](#camel) | `test string` → `testString` |
 | [Constant, screaming snake](#constant) | `test string` → `TEST_STRING` |
@@ -37,109 +37,161 @@ $ composer require ptrkcsk/change-case
 
 ### <a name='camel'></a>Camel case, lower camel case: `test string` → `testString`
 
-```
-ChangeCase\ChangeCase::camel(string $string [, string $locale [, bool $mergeNumbers]]) : string
+```php
+use ChangeCase\ChangeCase;
 
-ChangeCase\ChangeCase::lowerCamel(string $string [, string $locale [, bool $mergeNumbers]]) : string
+ChangeCase::camel('test string');      // 'testString'
+ChangeCase::lowerCamel('test string'); // 'testString'
 ```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='constant'></a>Constant case, screaming snake case: `test string` → `TEST_STRING`
 
-```
-ChangeCase\ChangeCase::constant(string $string [, string $locale]) : string
+```php
+use ChangeCase\ChangeCase;
 
-ChangeCase\ChangeCase::screamingSnake(string $string [, string $locale]) : string
+ChangeCase::constant('test string');       // 'TEST_STRING'
+ChangeCase::screamingSnake('test string'); // 'TEST_STRING'
 ```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='dot'></a>Dot case: `test string` → `test.string`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::dot('test string'); // 'test.case'
 ```
-ChangeCase\ChangeCase::dot(string $string [, string $locale]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='header'></a>Header case: `test string` → `Test-String`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::header('test string'); // 'Test-String'
 ```
-ChangeCase\ChangeCase::header(string $string [, string $locale]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='lower'></a>Lower case: `test string` → `test string`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::lower('test string'); // 'test string'
 ```
-ChangeCase\ChangeCase::lower(string $string [, string $locale]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='lower-first'></a>Lower case first: `TEST STRING` → `tEST STRING`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::lowerFirst('TEST STRING'); // 'tEST STRING'
 ```
-ChangeCase\ChangeCase::lowerFirst(string $string [, string $locale]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='no'></a>No case: `test string` → `test string`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::no('test string'); // 'test string'
 ```
-ChangeCase\ChangeCase::no(string $string [, string $locale [, string $replacement = ' ']]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='param'></a>Param case, kebab case, lisp case: `test string` → `test-string`
 
-```
-ChangeCase\ChangeCase::param(string $string [, string $locale]) : string
+```php
+use ChangeCase\ChangeCase;
 
-ChangeCase\ChangeCase::kebab(string $string [, string $locale]) : string
-
-ChangeCase\ChangeCase::lisp(string $string [, string $locale]) : string
+ChangeCase::param('test string'); // 'test-string'
+ChangeCase::kebab('test string'); // 'test-string'
+ChangeCase::lisp('test string');  // 'test-string'
 ```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='pascal'></a>Pascal case, upper camel case: `test string` → `TestString`
 
-```
-ChangeCase\ChangeCase::lisp(string $string [, string $locale [, bool $mergeNumbers]]) : string
+```php
+use ChangeCase\ChangeCase;
 
-ChangeCase\ChangeCase::upperCamel(string $string [, string $locale [, bool $mergeNumbers]]) : string
+ChangeCase::pascal('test string');     // 'TestString'
+ChangeCase::upperCamel('test string'); // 'TestString'
 ```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='path'></a>Path case: `test string` → `test/string`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::path('test string'); // 'test/string'
 ```
-ChangeCase\ChangeCase::path(string $string [, string $locale]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='sentence'></a>Sentence case: `test string` → `Test string`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::sentence('test string'); // 'Test string'
 ```
-ChangeCase\ChangeCase::sentence(string $string [, string $locale]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='snake'></a>Snake case, pothole case: `test string` → `test_string`
 
-```
-ChangeCase\ChangeCase::snake(string $string [, string $locale]) : string
+```php
+use ChangeCase\ChangeCase;
 
-ChangeCase\ChangeCase::pothole(string $string [, string $locale]) : string
+ChangeCase::snake('test string');   // 'test_string'
+ChangeCase::pothole('test string'); // 'test_string'
 ```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='title'></a>Title case, start case: `test string` → `Test String`
 
-```
-ChangeCase\ChangeCase::title(string $string [, string $locale]) : string
+```php
+use ChangeCase\ChangeCase;
 
-ChangeCase\ChangeCase::start(string $string [, string $locale]) : string
+ChangeCase::title('test string'); // 'Test String'
+ChangeCase::start('test string'); // 'Test String'
 ```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='upper'></a>Upper case, all caps: `test string` → `TEST STRING`
 
-```
-ChangeCase\ChangeCase::upper(string $string [, string $locale]) : string
+```php
+use ChangeCase\ChangeCase;
 
-ChangeCase\ChangeCase::allCaps(string $string [, string $locale]) : string
+ChangeCase::upper('test string');   // 'TEST STRING'
+ChangeCase::allCaps('test string'); // 'TEST STRING'
 ```
+
+<!-- TODO: Add link to API docs -->
 
 ### <a name='upper-first'></a>Upper case first: `test string` → `Test string`
 
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::upperFirst('test string');  // 'Test string'
 ```
-ChangeCase\ChangeCase::upperFirst(string $string [, string $locale]) : string
-```
+
+<!-- TODO: Add link to API docs -->
 
 <!-- TODO: Add URL -->
 
