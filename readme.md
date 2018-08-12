@@ -29,6 +29,7 @@ $ composer require ptrkcsk/change-case
 | [Path](#path) | `test string` → `test/string` |
 | [Sentence](#sentence) | `test string` → `Test string` |
 | [Snake, pothole](#snake) | `test string` → `test_string` |
+| [Swap](#swap) | `TeSt StRiNg` → `tEsT sTrInG` |
 | [Title, start](#title) | `test string` → `Test String` |
 | [Upper, all caps](#upper) | `test string` → `TEST STRING` |
 | [Upper first](#upper-first) | `test string` → `Test string` |
@@ -157,6 +158,16 @@ use ChangeCase\ChangeCase;
 
 ChangeCase::snake('test string');   // 'test_string'
 ChangeCase::pothole('test string'); // 'test_string'
+```
+
+<!-- TODO: Add link to API docs -->
+
+### <a name='swap'></a>Swap case: `TeSt StRiNg` → `tEsT sTrInG`
+
+```php
+use ChangeCase\ChangeCase;
+
+ChangeCase::swap('TeSt StRiNg'); // 'tEsT sTrInG'
 ```
 
 <!-- TODO: Add link to API docs -->
