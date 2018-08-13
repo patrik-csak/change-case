@@ -86,11 +86,11 @@ final class ChangeCaseTest extends TestCase
     {
         $this->assertEquals('test-string', ChangeCase::param('testString'));
         $this->assertEquals('test-string', ChangeCase::kebab('Test String'));
-        $this->assertEquals('test-string', ChangeCase::param('Test_String'));
-        $this->assertEquals('test-string', ChangeCase::kebab('Test-String'));
+        $this->assertEquals('test-string', ChangeCase::lisp('Test_String'));
+        $this->assertEquals('test-string', ChangeCase::param('Test-String'));
         $this->assertEquals(
             'a-better-test',
-            ChangeCase::param('a---better__test')
+            ChangeCase::kebab('a---better__test')
         );
     }
 
