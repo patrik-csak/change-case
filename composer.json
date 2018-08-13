@@ -1,11 +1,11 @@
 {
     "name": "ptrkcsk/change-case",
-    "description": "Convert strings to camelCase, CONSTANT_CASE, dot.case, Header-Case, lower case, param case, PascalCase, path/case, Sentence case, snake_case, Title Case, UPPER CASE, and more!",
+    "description": "Convert strings to camelCase, CONSTANT_CASE, dot.case, Header-Case, lower case, param-case, PascalCase, path/case, Sentence case, snake_case, Title Case, UPPER CASE, and more!",
     "type": "library",
     "keywords": [
         "case", "change case", "camel case", "constant case", "dot case",
         "header case", "lower case", "lower case first", "param case",
-        "kebab case", "pascale case", "upper camel case", "path case",
+        "kebab case", "pascal case", "upper camel case", "path case",
         "sentence case", "snake case", "title case", "upper case",
         "upper case first"
     ],
