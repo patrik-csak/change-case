@@ -1,5 +1,7 @@
 # Change Case
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/68647ed49ebe92b5cad5/test_coverage)](https://codeclimate.com/github/ptrkcsk/change-case/test_coverage)
+
 Convert strings to `camelCase`, `CONSTANT_CASE`, `dot.case`, `Header-Case`,
 `lower case`, `param-case`, `PascalCase`, `path/case`, `Sentence case`,
 `snake_case`, `Title Case`, `UPPER CASE`, and more!
