@@ -4,4 +4,6 @@ vendor
 tests/coverage
 
 # Files
+cc-test-reporter
+clover.xml
 composer.phar

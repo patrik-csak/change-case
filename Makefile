@@ -1,3 +1,4 @@
+linux = Linux
 macOs = Darwin
 os = $(shell uname)
 phpunit = vendor/bin/phpunit
@@ -12,10 +13,12 @@ all : ;
 
 .PHONY : clean
 clean :
-	@$(RM) -r docs
-	@$(RM) -r vendor
+	@$(RM) cc-test-reporter
+	@$(RM) clover.xml
 	@$(RM) composer.phar
+	@$(RM) -r docs
 	@$(RM) -r tests/coverage
+	@$(RM) -r vendor
 
 ########################################################################
 # Phony targets
@@ -23,6 +26,11 @@ clean :
 
 .PHONY : test
 test : $(phpunit) ; $<
+
+.PHONY : test-coverage-code-climate
+test-coverage-code-climate : clean cc-test-reporter clover.xml
+	@./cc-test-reporter before-build
+	@./cc-test-reporter after-build --coverage-input-type clover
 
 .PHONY : test-coverage-html
 test-coverage-html : $(phpunit)
@@ -34,6 +42,18 @@ endif
 ########################################################################
 # Real targets
 ########################################################################
+
+cc-test-reporter :
+ifeq ($(os), $(linux))
+	@curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+else ifeq ($(os), $(macOs))
+	@curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+else
+	$(error Operating system '$(os)' not supported)
+endif
+	@chmod +x cc-test-reporter
+
+clover.xml : $(phpunit) ; $< --coverage-clover clover.xml
 
 composer.phar :
 	@php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
