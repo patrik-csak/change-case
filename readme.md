@@ -204,7 +204,4 @@ ChangeCase::upperFirst('test string');  // 'Test string'
 
 <!-- TODO: Add link to API docs -->
 
-<!-- TODO: Add URL -->
-
-## [Detailed API documentation](#)
-
+<!-- TODO: Add URL to detailed API documentation -->
