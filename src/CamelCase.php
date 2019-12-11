@@ -43,7 +43,7 @@ class CamelCase
 
         return preg_replace_callback(
             '/ (.)/u',
-            function (array $matches) use ($locale) {
+            static function (array $matches) use ($locale) {
                 return UpperCase::convert($matches[1], $locale);
             },
             $result

@@ -62,7 +62,7 @@ class UpperCase
         if ($language) {
             $string = preg_replace_callback(
                 $language['regex'],
-                function (array $matches) use ($language) {
+                static function (array $matches) use ($language) {
                     return $language['map'][$matches[0]];
                 },
                 $string
