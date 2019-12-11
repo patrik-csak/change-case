@@ -46,7 +46,7 @@ class NoCase
             PREG_OFFSET_CAPTURE
         );
 
-        list($matches) = $matches;
+        [$matches] = $matches;
         $matchesLength = count($matches);
 
         // Fix incorrect offsets due to multibyte characters
@@ -57,7 +57,7 @@ class NoCase
         unset($m);
 
         foreach ($matches as $i => &$m) {
-            list($match, $offset) = $m;
+            [$match, $offset] = $m;
             $matchLength = mb_strlen($match);
             $stringLength = mb_strlen($string);
 
