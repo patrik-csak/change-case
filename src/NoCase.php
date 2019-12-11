@@ -6,6 +6,8 @@
 
 namespace ChangeCase;
 
+use function count;
+
 /**
  * NoCase
  */
@@ -45,7 +47,7 @@ class NoCase
         );
 
         list($matches) = $matches;
-        $matchesLength = \count($matches);
+        $matchesLength = count($matches);
 
         // Fix incorrect offsets due to multibyte characters
         foreach ($matches as $i => &$m) {
