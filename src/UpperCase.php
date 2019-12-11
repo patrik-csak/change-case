@@ -11,7 +11,7 @@ namespace ChangeCase;
  */
 class UpperCase
 {
-    const LANGUAGES = [
+    private const LANGUAGES = [
         'az' => [
             'regex' => "/[\u{0069}]/u",
             'map'   => [

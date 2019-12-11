@@ -11,7 +11,7 @@ namespace ChangeCase;
  */
 class LowerCase
 {
-    const LANGUAGES = [
+    private const LANGUAGES = [
         'az' => [
             'regex' => "/[\u{0130}]/u",
             'map'    => [
