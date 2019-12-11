@@ -57,6 +57,4 @@ clover.xml : $(phpunit) ; $< --coverage-clover clover.xml
 
 composer.phar : ; scripts/download-composer
 
-docs : vendor/bin/phpdoc ; $<
-
 vendor/% : composer.phar ; @php composer.phar install
