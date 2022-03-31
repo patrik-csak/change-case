@@ -1,3 +1,9 @@
+---
+
+This package is **abandoned** and no longer maintained. The author suggests using the [jawira/case-converter](https://packagist.org/packages/jawira/case-converter) package instead.
+
+---
+
 # Change Case
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/68647ed49ebe92b5cad5/test_coverage)](https://codeclimate.com/github/ptrkcsk/change-case/test_coverage)
